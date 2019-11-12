@@ -1,2 +1,2 @@
-$0: invalid option -- 'b'
-$0: unrecognized option '--whatever'
+$0: invalid option -- b
+$0: unrecognized option `--whatever'
