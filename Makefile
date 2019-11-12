@@ -52,7 +52,7 @@ endif
 
 objects=$(sources:.c=.o)
 
-binaries=getopt
+binaries=getopt$(EXEEXT)
 
 .PHONY: all clean realclean 
 all: $(binaries) all_po
@@ -60,7 +60,7 @@ all: $(binaries) all_po
 clean: clean_po
 	-$(RM) $(objects) $(binaries) 
 
-getopt: $(objects)
+getopt$(EXEEXT): $(objects)
 	$(CC) $(LDFLAGS) -o $@ $(objects)
 
 install: getopt install_po
