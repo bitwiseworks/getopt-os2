@@ -63,9 +63,9 @@ clean: clean_po
 getopt$(EXEEXT): $(objects)
 	$(CC) $(LDFLAGS) -o $@ $(objects)
 
-install: getopt install_po
+install: getopt$(EXEEXT) install_po
 	$(INSTALL) -m 755 -d $(DESTDIR)$(bindir) $(DESTDIR)$(man1dir)
-	$(INSTALL) -m 755 getopt $(DESTDIR)$(bindir)
+	$(INSTALL) -m 755 getopt$(EXEEXT) $(DESTDIR)$(bindir)
 	$(INSTALL) -m 644 getopt.1 $(DESTDIR)$(man1dir)
 
 install_doc:
