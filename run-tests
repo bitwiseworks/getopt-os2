@@ -19,14 +19,14 @@ unset POSIXLY_CORRECT
 unset GETOPT_COMPATIBLE
 cd `dirname $0`
 
-for testcmd in tests/*.cmd; do
+for testcmd in tests/*.sh; do
   test_failed=0
   rm -f test-stdout test-stderr test-stdout-expected test-stderr-expected
 
-  testfile=`basename "$testcmd" .cmd`
+  testfile=`basename "$testcmd" .sh`
 
   echo "Next test: $testfile"
-  "tests/${testfile}.cmd" "$getopt" > test-stdout 2>test-stderr
+  "tests/${testfile}.sh" "$getopt" > test-stdout 2>test-stderr
   exitcode="$?"
 
   if [ "$exitcode" != "`cat tests/${testfile}.exitcode`" ]; then
